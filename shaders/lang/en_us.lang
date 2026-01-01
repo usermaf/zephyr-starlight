@@ -1,0 +1,112 @@
+profile.FANCY = §cFancy
+profile.FAST  = §cFast
+
+option.MAIN_TITLE = Zephyr Starlight
+
+value.MAIN_TITLE.0 = §dv0.1
+value.MAIN_TITLE.1 = §cv0.1
+value.MAIN_TITLE.2 = §6v0.1
+value.MAIN_TITLE.3 = §ev0.1
+value.MAIN_TITLE.4 = §av0.1
+value.MAIN_TITLE.5 = §bv0.1
+value.MAIN_TITLE.6 = §9v0.1
+value.MAIN_TITLE.7 = §5v0.1
+
+screen.PATH_TRACING    = Path Tracing
+screen.ATMOSPHERICS    = Atmosphere & Lighting
+screen.TERRAIN         = Terrain
+screen.ANTIALIASING    = Anti-Aliasing
+screen.POST_PROCESSING = Post Processing
+screen.MISC            = Misc
+
+screen.PT_VOXELIZATION = Voxelization
+screen.PT_IRCACHE      = Irradiance Cache
+
+screen.PT_DIFFUSE    = Diffuse Lighting
+screen.PT_REFLECTION = Reflections
+screen.PT_SHADOW     = Shadows
+screen.PT_DENOISING  = Denoising
+
+option.SMOOTH_IRC    = Smooth Irradiance Cache
+option.NOISE_METHOD  = Noise Method
+
+value.NOISE_METHOD.0 = White Noise
+value.NOISE_METHOD.1 = Blue Noise
+
+option.PRIMARY_GI_SAMPLES            = Primary GI Samples
+option.DIFFUSE_MAX_RT_DISTANCE       = Diffuse Trace Distance
+option.PT_DIFFUSE_ACCUMULATION_LIMIT = Max Accumulated Frames
+option.SUNLIGHT_GI_QUALITY           = Sunlight GI Quality
+
+option.REFLECTION_SAMPLES               = Reflection Samples
+option.REFLECTION_MAX_RT_DISTANCE       = Reflection Trace Distance
+option.PT_REFLECTION_ACCUMULATION_LIMIT = Max Accumulated Frames
+option.REFLECTION_ROUGHNESS_THRESHOLD   = Reflection Roughness Threshold
+
+option.SHADOW_SAMPLES               = Shadow Samples
+option.SHADOW_MAX_RT_DISTANCE       = Shadow Trace Distance
+option.PT_SHADOW_ACCUMULATION_LIMIT = Max Accumulated Frames
+option.SUN_SIZE                     = Sun Size
+
+option.DENOISER_DEPTH_WEIGHT  = Denoiser Depth Weight
+option.DENOISER_NORMAL_WEIGHT = Denoiser Normal Weight
+option.DENOISER_SHARPENING    = Denoiser Sharpness
+
+option.IRC_VOXEL_ARRAY_SIZE = IRC Voxel Array Size
+option.IRC_PROBE_ATTEMPTS   = IRC Probe Attempts
+option.IRC_UPDATE_INTERVAL  = IRC Update Interval
+option.IRC_MAX_RT_DISTANCE  = IRC Trace Distance
+
+option.VOXELIZATION_DISTANCE   = Voxelization Distance
+option.entityShadowDistanceMul = Entity Voxelization Distance Multiplier
+
+suffix.entityShadowDistanceMul = x
+
+option.VOXELIZE_ENTITIES       = Voxelize Entities
+option.VOXELIZE_BLOCK_ENTITIES = Voxelize Block Entities
+option.VOXELIZE_PLAYER         = Voxelize Player
+option.VOXELIZE_ITEMS          = Voxelize Items
+
+screen.VOXEL_ADVANCED = Advanced
+
+option.VOXEL_ARRAY_SIZE     = Voxel Array Size
+option.VOXEL_PROBE_ATTEMPTS = Voxel Probe Attempts
+option.shadowMapResolution  = Max Entity Texture Size
+suffix.shadowMapResolution  = ²
+option.TEXTURE_HASH_ENTRIES = Texture Hash Entries
+option.TRIANGLE_ARRAY_SIZE  = Triangle Array Size
+
+option.sunPathRotation      = Sun Path Rotation
+option.SUN_AZIMUTH_ROTATION = Sun Azimuth Rotation
+
+option.SKY_MIE          = Mie Amount
+option.SKY_OZONE        = Ozone Amount
+option.NIGHT_BRIGHTNESS = Night Brightness
+
+option.NORMAL_MAPPING      = Normal Mapping
+option.SPECULAR_MAPPING    = Specular Mapping
+option.EMISSION_BRIGHTNESS = Emission Brightness
+option.GLASS_REFLECTANCE   = Glass Reflectance
+option.IPBR                = Hardcoded Emission
+
+option.TAA = TAA
+option.TAA_UPSCALING_FACTOR = TAAU Render Scale
+suffix.TAA_UPSCALING_FACTOR = %
+
+option.TAA_JITTER_SCALE       = TAA Jitter Scale
+option.TAA_ACCUMULATION_LIMIT = Max Frames
+option.TAA_VARIANCE_WEIGHT    = TAA Variance Weight
+option.TAA_OFFCENTER_WEIGHT   = TAA Offcenter Weight
+option.TAA_MIP_BIAS           = TAA Mip Bias
+option.SHARPENING             = Sharpening
+
+option.DYNAMIC_EXPOSURE             = Dynamic Exposure
+option.ADAPTATION_SPEED             = Adaptation Speed
+option.MANUAL_EXPOSURE              = Manual Exposure
+option.SATURATION                   = Saturation
+option.CHROMATIC_ABERRATION         = Chromatic Aberration
+option.CHROMATIC_ABERRATION_SAMPLES = Chromatic Aberration Samples
+
+option.HAND_FOV               = Hand FOV
+option.DISABLE_DENOISING      = Disable Denoising
+option.FORCE_TRIANGLE_TRACING = Force Triangle Tracing

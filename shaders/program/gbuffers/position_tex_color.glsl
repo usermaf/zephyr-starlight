@@ -1,0 +1,68 @@
+#ifdef fsh
+
+#include "/include/uniforms.glsl"
+#include "/include/config.glsl"
+#include "/include/constants.glsl"
+#include "/include/common.glsl"
+#include "/include/pbr.glsl"
+#include "/include/main.glsl"
+#include "/include/raytracing.glsl"
+#include "/include/textureData.glsl"
+
+in VSOUT 
+{
+    vec2 texcoord;
+    vec3 vertexColor;
+    flat uint packedNormal;
+} vsout;
+
+/* DRAWBUFFERS:89 */
+layout (location = 0) out uvec4 materialData0;
+layout (location = 1) out uvec4 materialData1;
+
+void main ()
+{
+    if (any(greaterThan(gl_FragCoord.xy, screenSize))) discard;
+    
+    vec4 albedo = texture(gtexture, vsout.texcoord) * vec4(vsout.vertexColor, 1.0);
+    uvec4 packedData = uvec4(packUnorm4x8(vec4(albedo.rgb, 0.0)), 0u, vsout.packedNormal, 0u);
+
+    materialData0 = packedData;
+    materialData1 = packedData.zwxy;
+
+    #ifdef STAGE_BEACON_BEAM
+        if (albedo.a < 0.9) discard;
+    #else
+        if (albedo.a < 0.1) discard;
+    #endif
+}
+
+#endif
+
+#ifdef vsh
+
+#include "/include/uniforms.glsl"
+#include "/include/config.glsl"
+#include "/include/constants.glsl"
+#include "/include/common.glsl"
+
+out VSOUT 
+{
+    vec2 texcoord;
+    vec3 vertexColor;
+    flat uint packedNormal;
+} vsout;
+
+void main ()
+{   
+    gl_Position = ftransform();
+
+    gl_Position.xy = mix(-gl_Position.ww, gl_Position.xy, TAAU_RENDER_SCALE);
+    gl_Position.xy += gl_Position.w * taaOffset;
+
+    vsout.texcoord = mat4x2(gl_TextureMatrix[0]) * gl_MultiTexCoord0;
+    vsout.vertexColor = gl_Color.rgb;
+    vsout.packedNormal = pack4x8(octEncode(alignNormal(transpose(mat3(gbufferModelView)) * gl_NormalMatrix * gl_Normal, 0.01)).xyxy);
+}
+
+#endif
