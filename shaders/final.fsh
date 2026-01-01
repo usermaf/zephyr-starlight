@@ -47,7 +47,7 @@ void main ()
         color.a = 1.0;
     #endif
 
-
+/*
     #define FONT_SIZE 2 // [1 2 3 4 5 6 7 8]
 	
 	beginText(ivec2(gl_FragCoord.xy / FONT_SIZE), ivec2(20, viewHeight / FONT_SIZE - 20));
@@ -57,5 +57,5 @@ void main ()
     printFloat(renderState.globalLuminance);
 
 	endText(color.rgb);
-
+*/
 }
