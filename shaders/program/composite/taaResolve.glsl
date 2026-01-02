@@ -23,7 +23,7 @@ void main ()
 
     for (int x = -1; x <= 1; x++) 
 		for (int y = -1; y <= 1; y++)
-			depth = min(depth, texelFetch(depthtex0, clamp(srcTexel + ivec2(x, y), ivec2(0), ivec2(renderSize) - 1), 0).r);
+			depth = min(depth, texelFetch(depthtex1, clamp(srcTexel + ivec2(x, y), ivec2(0), ivec2(renderSize) - 1), 0).r);
 
     vec4 currPos = gbufferModelViewProjectionInverse * vec4(vec3(uv, depth) * 2.0 - 1.0 - vec3(taaOffset, 0.0), 1.0);
     currPos.xyz /= currPos.w;
