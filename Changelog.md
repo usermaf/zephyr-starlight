@@ -9,4 +9,5 @@ Changes over v0.1:
   * Water Reflectance: The strength of reflections on water.
   * Rayleigh Amount: The amount of rayleigh scattering in the atmosphere.
 * Basic nether and end support
+* Improved TAA on translucent surfaces
 * Improved the look of the irradiance cache debug view
