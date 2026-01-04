@@ -55,7 +55,10 @@ void main ()
     }
 
      if (any(isnan(lastFrame))) lastFrame = vec4(0.0, 0.0, 0.0, 1.0);
-     
     filteredData.rgb = mix(lastFrame.rgb, filteredData.rgb, rcp(lastFrame.w));
+#if  REFLECTION_DENOISE_TOGGLE==1
     filteredData.w = min(lastFrame.w + 1.0, (filteredData.w > (REFLECTION_MAX_RT_DISTANCE / 2.0) || mat.roughness < 0.003) ? min(4, PT_REFLECTION_ACCUMULATION_LIMIT) : PT_REFLECTION_ACCUMULATION_LIMIT);
+#else
+filteredData.w = 0.0;
+#endif
 }

@@ -46,7 +46,7 @@
         vec4 currData = texelFetch(colortex2, texel, 0);
         vec4 currPos = projectAndDivide(gbufferModelViewProjectionInverse, vec3((texel + 0.5) * texelSize, depth) * 2.0 - 1.0 - vec3(taaOffset, 0.0));
 
-		vec2 sampleDir = kernel[FILTER_PASS];
+		vec2 sampleDir = REFLECTION_SPATIAL_FILTER*kernel[FILTER_PASS];
 
         float temporalWeight = isnan(currData.w) ? 0.0 : clamp(currData.w, 0.0, 8.0);
         vec4 samples = vec4(0.0);

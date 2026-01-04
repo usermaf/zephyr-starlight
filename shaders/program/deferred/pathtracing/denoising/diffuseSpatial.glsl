@@ -43,7 +43,7 @@
         vec3 currGeoNormal = octDecode(unpack4x8(texelFetch(colortex9, texel, 0).r).xy);
         vec4 currPos = screenToPlayerPos(vec3((texel + 0.5) * texelSize, depth));
 
-		vec2 sampleDir = kernel[FILTER_PASS];
+		vec2 sampleDir = DIFFUSE_SPATIAL_FILTER*kernel[FILTER_PASS];
         float temporalWeight = isnan(currData.w) ? 0.0 : clamp(currData.w, 0.0, 32.0);
         vec4 samples = vec4(0.0);
         float weights = 0.0;

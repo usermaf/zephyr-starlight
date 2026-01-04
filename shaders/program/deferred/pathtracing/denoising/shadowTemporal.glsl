@@ -59,5 +59,9 @@ void main ()
     lastFrame.w = max(1.0, lastFrame.w * min(1.0, exp(3.0 - 3.0 * playerPos.w * prevUv.w)));
 
     filteredData.rgb = mix(clamp(lastFrame.rgb, shadowMin, shadowMax), filteredData.rgb, rcp(lastFrame.w));
+#if SHADOW_DENOISE_TOGGLE==1
     filteredData.w = min(lastFrame.w + 1.0, PT_SHADOW_ACCUMULATION_LIMIT);
+#else
+filteredData.w = 0.0;
+#endif
 }
