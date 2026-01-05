@@ -129,6 +129,11 @@ option.MANUAL_EXPOSURE              = Manual Exposure
 option.SATURATION                   = Saturation
 option.CHROMATIC_ABERRATION         = Chromatic Aberration
 option.CHROMATIC_ABERRATION_SAMPLES = Chromatic Aberration Samples
+option.CONTRAST = Contrast
+option.SHADOW_OFFSET = Shadow Offset
+option.MIDTONE_SLOPE = Midtone Slope
+option.HIGHLIGHT_SCALE = Highlight Scale
+option.TOE_OFFSET = Toe Offset
 
 option.HAND_FOV               = Hand FOV
 option.DISABLE_DENOISING      = Disable Denoising
