@@ -29,20 +29,8 @@ color.rgb=color.rgb;
         color.rgb = mix(vec3(luminance(color.rgb)), color.rgb, SATURATION);
 #endif
 
-
-        vec4 sharpen = vec4(0.0);
-
-        for (int x = -1; x <= 1; x++) {
-            for (int y = -1; y <= 1; y++) {
-                float sampleWeight = exp(-length(vec2(x, y)));
-#if TONEMAPPER=2.0
-                sharpen += vec4(sampleWeight * texelFetch(colortex10, ivec2(gl_FragCoord.xy) + ivec2(x, y), 0).rgb, sampleWeight);
-#endif
-            }
-        }
-
 #if TONEMAPPER==0.0
-        color.rgb = mix(pow(1.0 - exp(-exposure * color.rgb), vec3(1.0 / 2.2)), pow(1.0 - exp(-exposure * sharpen.rgb / sharpen.w), vec3(1.0 / 2.2)), -SHARPENING) + blueNoise(gl_FragCoord.xy) * rcp(255.0) - rcp(510.0);
+        color.rgb = pow(1.0 - exp(-exposure * color.rgb), vec3(1.0 / 2.2))+ blueNoise(gl_FragCoord.xy) * rcp(255.0) - rcp(510.0);
 #elif TONEMAPPER==1.0
      color.rgb = pow(ACESFilm(1.0 - exp(-exposure * color.rgb)).rgb, vec3(1.0 / 2.2)) + blueNoise(gl_FragCoord.xy) * rcp(255.0) - rcp(510.0);
 #elif TONEMAPPER==2.0
