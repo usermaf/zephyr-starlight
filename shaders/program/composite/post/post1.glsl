@@ -12,6 +12,16 @@ layout (location = 0) out vec4 color;
 
 void main ()
 {   
+
+vec4 sharpen = vec4(0.0);
+
+        for (int x = -1; x <= 1; x++) {
+            for (int y = -1; y <= 1; y++) {
+                float sampleWeight = exp(-length(vec2(x, y)));       
+   sharpen += vec4(sampleWeight * texelFetch(colortex10, ivec2(gl_FragCoord.xy) + ivec2(x, y), 0).rgb, sampleWeight);
+            }
+        }
+
     vec2 start = gl_FragCoord.xy;
     vec2 end = mix(screenSize / 2.0, gl_FragCoord.xy, 500.0 / (500.0 + CHROMATIC_ABERRATION));
 
@@ -36,7 +46,7 @@ float vig = XY.x*XY.y * 15.0;
 float vig = 1.0;
 #endif
 
-vec4 vignette = min(min(vec4(vig),texelFetch(colortex10, ivec2(samplePos),0)),vec4(integratedData * rcp(CHROMATIC_ABERRATION_SAMPLES), 1.0));
+vec4 vignette = min(min(vec4(vig),texelFetch(colortex10, ivec2(samplePos),0)),mix(vec4(integratedData * rcp(CHROMATIC_ABERRATION_SAMPLES), 1.0),sharpen, -SHARPENING/10.0));
     
     color = vignette;
 }
