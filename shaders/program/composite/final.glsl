@@ -34,7 +34,7 @@ color.rgb=color.rgb;
 #elif TONEMAPPER==1.0
      color.rgb = pow(ACESFilm(1.0 - exp(-exposure * color.rgb)).rgb, vec3(1.0 / 2.2)) + blueNoise(gl_FragCoord.xy) * rcp(255.0) - rcp(510.0);
 #elif TONEMAPPER==2.0
-color.rgb = ApplyAgX(color.rgb) + blueNoise(gl_FragCoord.xy)* rcp(255.0) - rcp(510.0);
+color.rgb = pow(ApplyAgX(color.rgb), vec3(1.0/2.2)) + blueNoise(gl_FragCoord.xy)* rcp(255.0) - rcp(510.0);
 #else
 color.rgb = pow(Reinhard(color.rgb*exposure), vec3(1.0/2.2)) + blueNoise(gl_FragCoord.xy)* rcp(255.0) - rcp(510.0);
 #endif
