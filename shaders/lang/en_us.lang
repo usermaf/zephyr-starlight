@@ -1,3 +1,4 @@
+profile.RENDER = §cRENDER
 profile.FANCY = §cFancy
 profile.FAST  = §cFast
 
@@ -38,7 +39,7 @@ value.NOISE_METHOD.1 = Blue Noise
 option.DIFFUSE_SAMPLES               = Diffuse Samples
 option.DIFFUSE_MAX_RT_DISTANCE       = Diffuse Trace Distance
 option.PT_DIFFUSE_ACCUMULATION_LIMIT = Max Accumulated Frames
-value.PT_DIFFUSE_ACCUMULATION_LIMIT.99999 = Render Mode
+value.PT_DIFFUSE_ACCUMULATION_LIMIT.99999999 = Render Mode
 option.DIFFUSE_DENOISE_PASSES        = Denoising Passes
 option.SUNLIGHT_GI_QUALITY           = Sunlight GI Quality
 option.DIFFUSE_DENOISE_TOGGLE = Diffuse Temporal Filter Toggle
@@ -47,14 +48,14 @@ option.DIFFUSE_SPATIAL_FILTER = Diffuse Spatial Filtering
 option.REFLECTION_SAMPLES               = Reflection Samples
 option.REFLECTION_MAX_RT_DISTANCE       = Reflection Trace Distance 
 option.PT_REFLECTION_ACCUMULATION_LIMIT = Max Accumulated Frames
-value.PT_REFLECTION_ACCUMULATION_LIMIT.99999 = Render Mode
+value.PT_REFLECTION_ACCUMULATION_LIMIT.99999999 = Render Mode
 option.REFLECTION_ROUGHNESS_THRESHOLD   = Reflection Roughness Threshold
 option.REFLECTION_DENOISE_TOGGLE = Reflection Temporal Filter Toggle
 option.REFLECTION_SPATIAL_FILTER = Reflection Spatial Filtering 
 option.SHADOW_SAMPLES               = Shadow Samples
 option.SHADOW_MAX_RT_DISTANCE       = Shadow Trace Distance
 option.PT_SHADOW_ACCUMULATION_LIMIT = Max Accumulated Frames
-value.PT_SHADOW_ACCUMULATION_LIMIT.99999 = Render Mode
+value.PT_SHADOW_ACCUMULATION_LIMIT.99999999 = Render Mode
 option.SUN_SIZE                     = Sun Size
 option.SHADOW_DENOISE_TOGGLE = Shadow Temporal Filter Toggle
 option.SHADOW_SPATIAL_FILTER = Shadow Spatial Filtering 
@@ -149,11 +150,14 @@ option.AGX_SLOPE_RED = AGX SLOPE RED
 option.AGX_SLOPE_GREEN = AGX SLOPE GREEN
 option.AGX_SLOPE_BLUE = AGX SLOPE BLUE
 option.AGX_POWER_RED = AGX POWER RED
-option.AGX_POWER_GREEN = AGX SLOPE GREEN
-option.AGX_POWER_BLUE = AGX SLOPE BLUE
+option.AGX_POWER_GREEN = AGX POWER GREEN
+option.AGX_POWER_BLUE = AGX POWER BLUE
 option.VIGNETTE = Vignette
 value.VIGNETTE.0.0 = Off
 value.VIGNETTE.1.0 = On
+option.FISHEYE = Fisheye
+value.FISHEYE.0.0 = Off
+value.FISHEYE.1.0 = On
 
 
 option.HAND_FOV               = Hand FOV
