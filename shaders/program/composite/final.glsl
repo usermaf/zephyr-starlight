@@ -23,10 +23,12 @@ void main ()
     #else
         color = texelFetch(colortex10, ivec2(gl_FragCoord.xy), 0);
 
-#if TONEMAPPER=2.0
+#if TONEMAPPER==2.0
 color.rgb=color.rgb;
+#elif TONEMAPPER==3.0
+        color.rgb = mix(Reinhard(vec3(luminance(color.rgb))), color.rgb, SATURATION);
 #else
-        color.rgb = mix(vec3(luminance(color.rgb)), color.rgb, SATURATION);
+ color.rgb = mix(vec3(luminance(color.rgb)), color.rgb, SATURATION);
 #endif
 
 #if TONEMAPPER==0.0
@@ -36,7 +38,7 @@ color.rgb=color.rgb;
 #elif TONEMAPPER==2.0
 color.rgb = pow(ApplyAgX(color.rgb), vec3(1.0/2.2)) + blueNoise(gl_FragCoord.xy)* rcp(255.0) - rcp(510.0);
 #else
-color.rgb = pow(Reinhard(color.rgb*exposure), vec3(1.0/2.2)) + blueNoise(gl_FragCoord.xy)* rcp(255.0) - rcp(510.0);
+color.rgb = pow(color.rgb*exposure, vec3(1.0/2.2)) + blueNoise(gl_FragCoord.xy)* rcp(255.0) - rcp(510.0);
 #endif
 color.a = 1.0;
 /*
